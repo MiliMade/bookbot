@@ -1,1 +1,1 @@
-# bookbot
+# bookbot is a python app
