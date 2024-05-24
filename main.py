@@ -3,10 +3,12 @@ def main():
   book_text = get_book_text(book_path) 
   num_of_words = get_num_of_words(book_text)
   characters_in_text = count_characters(book_path)
+  characters_in_text_sorted = dict(sorted(characters_in_text.items(), key=lambda x:x[1], reverse=True))
   print(f"--- Begin report of {book_path} ---")
   print(f"{num_of_words} words found in the document")
-  for character in characters_in_text:
-    print(f"The {character}")
+  for character in characters_in_text_sorted:
+    if character.isalpha():
+      print(f"The '{character}' character was found {characters_in_text[character]} times")
 
 def get_book_text(path):
   with open(path) as f:
